@@ -15,7 +15,15 @@ private HashMap<String,Location> locations;
         try (BufferedReader br = new BufferedReader(new FileReader("World.txt"))){
                 String line;
                 while ((line = br.readLine()) !=null){
-                    String[] lines = line.split("-");
+                    String[] parts = line.split("-");
+                    if(parts.length>2) continue;
+
+                    String locName = parts[0].trim();
+                    Location loc = locations.computeIfAbsent(locName, name -> new Location(name));
+
+
+
+
                 }
             } catch (FileNotFoundException e) {
             throw new RuntimeException(e);

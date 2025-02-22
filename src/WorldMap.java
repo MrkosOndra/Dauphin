@@ -35,5 +35,11 @@ private HashMap<String,Location> locations;
         }
 
     }
+    public void printMap(){
+        for(Location loc: locations.values()){
+            System.out.println(loc);
+        }
+
+    }
     }
 

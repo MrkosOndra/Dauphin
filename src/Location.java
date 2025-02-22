@@ -1,4 +1,5 @@
 import java.util.HashSet;
+import java.util.stream.Collectors;
 
 public class Location {
     private String name;
@@ -24,9 +25,9 @@ public class Location {
 
     @Override
     public String toString() {
-        return "Location{" +
-                "name='" + name + '\'' +
-                ", connections=" + connections +
-                '}';
+        String connectedNames = connections.stream()
+                .map(Location::getName)
+                .collect(Collectors.joining(", "));
+        return name + " -> [" + connectedNames + "]";
     }
 }

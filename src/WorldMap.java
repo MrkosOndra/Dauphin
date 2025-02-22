@@ -11,27 +11,29 @@ private HashMap<String,Location> locations;
         locations = new HashMap<>();
     }
 
-    public boolean loadMap(){
-        try (BufferedReader br = new BufferedReader(new FileReader("World.txt"))){
-                String line;
-                while ((line = br.readLine()) !=null){
-                    String[] parts = line.split("-");
-                    if(parts.length>2) continue;
+    public boolean loadMap() {
+        try (BufferedReader br = new BufferedReader(new FileReader("World.txt"))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                String[] parts = line.split("-");
+                if (parts.length > 2) continue;
 
-                    String locName = parts[0].trim();
-                    Location loc = locations.computeIfAbsent(locName, name -> new Location(name));
+                String locName = parts[0].trim();
+                Location loc = locations.computeIfAbsent(locName, name -> new Location(name));
 
-
-
-
+                for (int i = 1; i < parts.length; i++) {
+                    String connectedLocName = parts[i].trim();
+                    Location connectedLoc = locations.computeIfAbsent(connectedLocName, name -> new Location(name));
+                    loc.addConnections(connectedLoc);
                 }
-            } catch (FileNotFoundException e) {
+            }
+            return true;
+        } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
 
-        return false;
     }
     }
 

@@ -16,7 +16,7 @@ private HashMap<String,Location> locations;
             String line;
             while ((line = br.readLine()) != null) {
                 String[] parts = line.split("-");
-                if (parts.length > 2) continue;
+                if (parts.length < 2) continue;
 
                 String locName = parts[0].trim();
                 Location loc = locations.computeIfAbsent(locName, name -> new Location(name));

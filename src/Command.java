@@ -7,4 +7,5 @@ public abstract class Command {
         this.currentLocation = map.getStartingLocation();
     }
     public abstract void execute(String[] args);
+    public abstract boolean exit();
 }

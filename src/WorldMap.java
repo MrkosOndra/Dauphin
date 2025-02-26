@@ -39,7 +39,11 @@ private HashMap<String,Location> locations;
         for(Location loc: locations.values()){
             System.out.println(loc);
         }
+        }
 
+    public Location getStartingLocation(){
+        return locations.values().iterator().next();
     }
     }
+
 

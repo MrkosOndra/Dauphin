@@ -1,33 +1,30 @@
-import java.util.HashSet;
+import java.util.HashMap;
 import java.util.stream.Collectors;
 
 public class Location {
     private String name;
-    private HashSet<Location> connections;
+    private HashMap<String,Location> connections;
 
     public Location(String name) {
         this.name = name;
-        this.connections = new HashSet<>();
+        this.connections = new HashMap<>();
     }
 
     public void addConnections(Location location){
-        connections.add(location);
-        location.connections.add(this);
+        connections.put(location.getName().toLowerCase(), location);
+        location.connections.put(this.name.toLowerCase(), this);
     }
 
     public String getName() {
         return name;
     }
 
-    public HashSet<Location> getConnections() {
+    public HashMap<String, Location> getConnections() {
         return connections;
     }
 
     @Override
     public String toString() {
-        String connectedNames = connections.stream()
-                .map(Location::getName)
-                .collect(Collectors.joining(", "));
-        return name + " -> [" + connectedNames + "]";
+        return name + " ->" + connections.keySet();
     }
 }

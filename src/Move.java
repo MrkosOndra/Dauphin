@@ -7,6 +7,7 @@ public class Move extends Command{
     public void execute(String[] args) {
         if(args.length>2) {
             System.out.println("Použití: move <místo>");
+            return;
         }
 
             String destination = args[1].toLowerCase();

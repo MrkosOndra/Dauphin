@@ -7,8 +7,8 @@ public class Start {
     private Scanner scanner;
 
     public Start() {
-        this.world = new WorldMap();
         this.scanner = new Scanner(System.in);
+        this.world = new WorldMap();
     }
 
     public void run() {

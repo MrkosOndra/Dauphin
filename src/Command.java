@@ -4,7 +4,6 @@ public abstract class Command {
 
     public Command(WorldMap map) {
         this.map = map;
-        this.currentLocation = map.getStartingLocation();
     }
     public abstract void execute(String[] args);
     public abstract boolean exit();

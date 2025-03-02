@@ -6,6 +6,7 @@ import java.util.HashMap;
 
 public class WorldMap {
 private HashMap<String,Location> locations;
+private Location currentLocation;
 
     public WorldMap() {
         locations = new HashMap<>();
@@ -27,6 +28,11 @@ private HashMap<String,Location> locations;
                     loc.addConnections(connectedLoc);
                 }
             }
+            String startLocation = "Pariz";
+            if (locations.containsKey(startLocation)) {
+                currentLocation = locations.get(startLocation);
+                System.out.println(" Startovní lokace nastavena: " + currentLocation.getName());
+            }
             return true;
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
@@ -40,10 +46,25 @@ private HashMap<String,Location> locations;
             System.out.println(loc);
         }
         }
+    public void setStartLocation(String locationName) {
+        locationName = locationName.toLowerCase();
+        if (locations.containsKey(locationName)) {
+            currentLocation = locations.get(locationName);
+            System.out.println("Startovní lokace nastavena: " + currentLocation.getName());
+        }
+    }
 
     public Location getStartingLocation(){
         return locations.values().iterator().next();
     }
+
+    public Location getCurrentLocation() {
+        return currentLocation;
     }
+
+    public void setCurrentLocation(Location currentLocation) {
+        this.currentLocation = currentLocation;
+    }
+}
 
 

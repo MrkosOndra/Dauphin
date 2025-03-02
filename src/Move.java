@@ -11,9 +11,11 @@ public class Move extends Command{
         }
 
             String destination = args[1].toLowerCase();
+        Location currentLocation= map.getCurrentLocation();
             Location nextLocation = currentLocation.getConnections().get(destination);
 
             if (nextLocation != null) {
+                map.setCurrentLocation(nextLocation);
                 currentLocation = nextLocation;
                 System.out.println("Přesunul si se do: " + currentLocation.getName());
             } else {

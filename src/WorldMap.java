@@ -7,6 +7,7 @@ import java.util.HashMap;
 public class WorldMap {
 private HashMap<String,Location> locations;
 private Location currentLocation;
+private Location startLocation;
 
     public WorldMap() {
         locations = new HashMap<>();
@@ -28,7 +29,7 @@ private Location currentLocation;
                     loc.addConnections(connectedLoc);
                 }
             }
-            String startLocation = "Pariz";
+
             if (locations.containsKey(startLocation)) {
                 currentLocation = locations.get(startLocation);
                 System.out.println(" Startovní lokace nastavena: " + currentLocation.getName());

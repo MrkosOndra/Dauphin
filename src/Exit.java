@@ -6,6 +6,7 @@ public class Exit extends Command{
     @Override
     public void execute(String[] args) {
         System.out.println("hra ukoncena");
+        System.exit(0);
 
     }
 

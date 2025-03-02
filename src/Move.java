@@ -5,7 +5,7 @@ public class Move extends Command{
 
     @Override
     public void execute(String[] args) {
-        if(args.length>2) {
+        if(args.length < 2) {
             System.out.println("Použití: move <místo>");
             return;
         }

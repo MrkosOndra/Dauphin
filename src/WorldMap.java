@@ -7,7 +7,7 @@ import java.util.HashMap;
 public class WorldMap {
 private HashMap<String,Location> locations;
 private Location currentLocation;
-private Location startLocation;
+private String startLocation;
 
     public WorldMap() {
         locations = new HashMap<>();
@@ -20,21 +20,18 @@ private Location startLocation;
                 String[] parts = line.split("-");
                 if (parts.length < 2) continue;
 
-                String locName = parts[0].trim();
+                String locName = parts[0].trim().toLowerCase();
                 Location loc = locations.computeIfAbsent(locName, name -> new Location(name));
 
+                System.out.println("nactena lokace:"+ locName);
+
                 for (int i = 1; i < parts.length; i++) {
-                    String connectedLocName = parts[i].trim();
+                    String connectedLocName = parts[i].trim().toLowerCase();
                     Location connectedLoc = locations.computeIfAbsent(connectedLocName, name -> new Location(name));
                     loc.addConnections(connectedLoc);
                 }
             }
-
-            if (locations.containsKey(startLocation)) {
-                currentLocation = locations.get(startLocation);
-                System.out.println(" Startovní lokace nastavena: " + currentLocation.getName());
-            }
-            return true;
+            return !locations.isEmpty();
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
         } catch (IOException e) {
@@ -48,18 +45,24 @@ private Location startLocation;
         }
         }
     public void setStartLocation(String locationName) {
-        locationName = locationName.toLowerCase();
+        locationName = locationName.trim().toLowerCase();
         if (locations.containsKey(locationName)) {
             currentLocation = locations.get(locationName);
             System.out.println("Startovní lokace nastavena: " + currentLocation.getName());
+        }else{
+            System.out.println("Chyba: Startovní lokace '" + locationName + "' neexistuje!");
         }
-    }
+        }
+
 
     public Location getStartingLocation(){
         return locations.values().iterator().next();
     }
 
     public Location getCurrentLocation() {
+        if (currentLocation == null) {
+            System.out.println("CHYBA: currentLocation je null!");
+        }
         return currentLocation;
     }
 
@@ -67,5 +70,6 @@ private Location startLocation;
         this.currentLocation = currentLocation;
     }
 }
+
 
 

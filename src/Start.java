@@ -14,6 +14,7 @@ public class Start {
     public void run() {
         if (world.loadMap()) {
             world.printMap();
+            world.setStartLocation("Orleans");
 
             this.move = new Move(world);
             this.exit= new Exit(world);
@@ -21,7 +22,6 @@ public class Start {
             System.out.println("Vítejte ve hře! Použijte příkaz 'move <místo>' pro pohyb nebo 'exit' pro ukončení.");
 
             while (true) {
-                world.setStartLocation("Orleans");
                 System.out.print("\nZadejte příkaz: ");
                 String input = scanner.nextLine().trim().toLowerCase();
                 String[] commandArgs = input.split(" ");

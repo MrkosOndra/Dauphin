@@ -21,4 +21,20 @@ public class NPC {
 
         return null;
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public Location getLocation() {
+        return location;
+    }
+
+    public String getDialogue() {
+        return dialogue;
+    }
+
+    public List<Task> getTasks() {
+        return tasks;
+    }
 }

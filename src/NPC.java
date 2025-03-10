@@ -14,11 +14,13 @@ public class NPC {
     }
 
     public void talk() {
-        System.out.println(dialogue);
+        System.out.println(name+ ": " + dialogue);
     }
 
     public Task giveTask() {
-
+        if (!tasks.isEmpty()) {
+            return tasks.get(0);
+        }
         return null;
     }
 

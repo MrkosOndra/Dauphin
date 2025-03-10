@@ -60,15 +60,31 @@ private String startLocation;
     }
 
     public Location getCurrentLocation() {
-        if (currentLocation == null) {
-            System.out.println("CHYBA: currentLocation je null!");
-        }
         return currentLocation;
     }
 
     public void setCurrentLocation(Location currentLocation) {
         this.currentLocation = currentLocation;
     }
+    public void addNPCLocation(String locationName, NPC npc){
+        Location location = locations.get(locationName.toLowerCase());
+        if (location != null) {
+            location.addNpc(npc);
+        } else {
+            System.out.println("Chyba: Lokace '" + locationName + "' neexistuje.");
+        }
+    }
+
+    public NPC GetNPCbyName(String NpcName) {
+        for (Location loc : locations.values()) {
+            NPC npc = loc.getNPC(NpcName);
+            if (npc != null) {
+                return npc;
+            }
+        }
+        return null;
+    }
+
 }
 
 

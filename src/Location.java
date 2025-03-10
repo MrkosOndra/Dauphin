@@ -9,6 +9,7 @@ public class Location {
     public Location(String name) {
         this.name = name;
         this.connections = new HashMap<>();
+        this.npcs=new HashMap<>();
     }
 
     public void addConnections(Location location){

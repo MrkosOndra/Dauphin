@@ -19,4 +19,8 @@ public class Task {
     public Item getReward() {
         return reward;
     }
+
+    public String getDescription() {
+        return description;
+    }
 }

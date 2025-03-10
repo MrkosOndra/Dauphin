@@ -59,6 +59,7 @@ private String startLocation;
         return locations.values().iterator().next();
     }
 
+
     public Location getCurrentLocation() {
         return currentLocation;
     }

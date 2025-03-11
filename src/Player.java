@@ -24,7 +24,7 @@ public class Player {
         if(inventory.isEmpty()){
             System.out.println("Tvuj inventar je prazdny");
         }else {
-            System.out.println("🎒 Tvůj inventář:");
+            System.out.println(" Tvůj inventář:");
             for (Item item : inventory) {
                 System.out.println(" - " + item.getName());
             }
@@ -33,7 +33,7 @@ public class Player {
     }
     public void winGame() {
         this.HasWon = true;
-        System.out.println("🎉 Gratuluji! Dokončil jsi hru! 🎉");
+        System.out.println("Gratuluji! Dokončil jsi hru!");
     }
 
     public boolean hasWon() {

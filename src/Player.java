@@ -10,6 +10,10 @@ public class Player {
 
     private boolean HasWon;
 
+    public Player() {
+
+    }
+
 
     public void addItem(Item item) {
         inventory.add(item);

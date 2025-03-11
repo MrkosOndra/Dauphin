@@ -8,9 +8,15 @@ public class WorldMap {
 private HashMap<String,Location> locations;
 private Location currentLocation;
 private String startLocation;
+private Player player;
 
     public WorldMap() {
         locations = new HashMap<>();
+        player = new Player();
+    }
+
+    public Player getPlayer() {
+        return player;
     }
 
     public boolean loadMap() {

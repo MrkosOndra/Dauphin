@@ -5,11 +5,13 @@ public class Location {
     private String name;
     private HashMap<String,Location> connections;
     private HashMap<String,NPC> npcs;
+    private HashMap<String,Item> Items;
 
     public Location(String name) {
         this.name = name;
         this.connections = new HashMap<>();
         this.npcs=new HashMap<>();
+        this.Items=new HashMap<>();
     }
 
     public void addConnections(Location location){
@@ -25,6 +27,17 @@ public class Location {
 
     public String getName() {
         return name;
+    }
+    public void addItem(Item item) {
+        Items.put(item.getName().toLowerCase(), item);
+    }
+
+    public Item getItem(String itemName) {
+        return Items.get(itemName.toLowerCase());
+    }
+
+    public void removeItem(String itemName) {
+        Items.remove(itemName.toLowerCase());
     }
 
     public HashMap<String, Location> getConnections() {

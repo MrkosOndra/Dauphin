@@ -5,7 +5,4 @@ public class Main {
         Start game = new Start();
         game.run();
         }
-
-
-
     }

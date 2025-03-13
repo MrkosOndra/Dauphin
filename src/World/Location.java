@@ -1,5 +1,6 @@
+package World;
+
 import java.util.HashMap;
-import java.util.stream.Collectors;
 
 public class Location {
     private String name;

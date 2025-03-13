@@ -1,3 +1,9 @@
+package Game;
+
+import Command.Command;
+import World.WorldMap;
+import Command.*;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;

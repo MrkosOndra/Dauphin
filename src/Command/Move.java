@@ -1,6 +1,9 @@
-import java.util.Arrays;
+package Command;
 
-public class Move extends Command{
+import World.Location;
+import World.WorldMap;
+
+public class Move extends Command {
     private java.util.Arrays Arrays;
 
     public Move(WorldMap map) {

@@ -1,3 +1,9 @@
+package Command;
+
+import World.Item;
+import World.Location;
+import World.WorldMap;
+
 public class Take extends Command {
     public Take(WorldMap map) {
         super(map);

@@ -1,4 +1,10 @@
-public class Complete extends Command{
+package Command;
+
+import World.NPC;
+import World.Task;
+import World.WorldMap;
+
+public class Complete extends Command {
     public Complete(WorldMap map) {
         super(map);
     }
@@ -14,14 +20,14 @@ public class Complete extends Command{
         NPC npc = map.getCurrentLocation().getNPC(npcName);
 
         if (npc == null) {
-            System.out.println("Tento NPC zde není.");
+            System.out.println("Tento World.NPC zde není.");
             return;
         }
 
         Task task = npc.giveTask();
 
         if (task == null) {
-            System.out.println("Tento NPC nemá žádný úkol.");
+            System.out.println("Tento World.NPC nemá žádný úkol.");
             return;
         }
 

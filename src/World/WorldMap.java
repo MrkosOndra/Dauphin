@@ -1,8 +1,13 @@
+package World;
+
+import Game.Player;
+
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.HashMap;
+
 
 public class WorldMap {
 private HashMap<String,Location> locations;

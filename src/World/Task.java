@@ -1,3 +1,7 @@
+package World;
+
+import Game.Player;
+
 public class Task {
     private String description;
     private boolean complete;

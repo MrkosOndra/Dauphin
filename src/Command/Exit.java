@@ -1,4 +1,8 @@
-public class Exit extends Command{
+package Command;
+
+import World.WorldMap;
+
+public class Exit extends Command {
     public Exit(WorldMap map) {
         super(map);
     }

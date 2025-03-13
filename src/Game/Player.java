@@ -1,3 +1,7 @@
+package Game;
+
+import World.Item;
+
 import java.util.List;
 
 public class Player {

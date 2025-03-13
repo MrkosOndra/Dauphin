@@ -1,3 +1,8 @@
+package Command;
+import World.Location;
+import World.WorldMap;
+import World.WorldMap.*;
+
 public abstract class Command {
     protected WorldMap map;
     protected Location currentLocation;

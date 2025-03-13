@@ -18,9 +18,12 @@ this.HasWon=false;
 
 
     public void addItem(Item item) {
-        inventory.add(item);
-        System.out.println("sebral jsi: "+ item.getName());
-
+        if(inventory.size()<=10) {
+            inventory.add(item);
+            System.out.println("sebral jsi: " + item.getName());
+        }else{
+            System.out.println("mas plny inventar!!");
+        }
     }
     public boolean hasItem(String ItemName){
         return inventory.stream().anyMatch(item-> item.getName().equalsIgnoreCase(ItemName));

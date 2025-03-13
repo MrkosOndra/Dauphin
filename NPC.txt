@@ -1,0 +1,13 @@
+Merlin;Montburn;
+Kral Artus;Orleans;
+Obchodnik Pierre;Paris;
+Kovar Robert;Reims;
+Alchymista Hugo;Gerberoy;
+Lancelot;Avignon;
+Gaston;Les Landes;
+Kralovna Eleanor;Saint Cirq Lapopie;
+Athelsan;Fonteneblausky Les;
+Cedric;Les Compiegne;
+Lovec Hugo;Orleansky Les;
+Myslivec Alfred;Broceliandsky les;
+Caliste;La Roque Gageac;

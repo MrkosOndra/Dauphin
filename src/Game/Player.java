@@ -64,4 +64,8 @@ this.HasWon=false;
     public boolean hasWon() {
         return HasWon;
     }
+
+    public int getCitizens() {
+        return citizens;
+    }
 }

@@ -6,9 +6,9 @@ public class NPC {
     private String name;
     private Location location;
     private String dialogue;
-    private List<Task> tasks;
+    private Task tasks;
 
-    public NPC(String name, Location location, String dialogue, List<Task> tasks) {
+    public NPC(String name, Location location, String dialogue, Task tasks) {
         this.name = name;
         this.location = location;
         this.dialogue = dialogue;
@@ -20,8 +20,8 @@ public class NPC {
     }
 
     public Task giveTask() {
-        if (!tasks.isEmpty()) {
-            return tasks.get(0);
+        if (tasks!=null) {
+            return tasks;
         }
         return null;
     }
@@ -38,7 +38,7 @@ public class NPC {
         return dialogue;
     }
 
-    public List<Task> getTasks() {
+    public Task getTasks() {
         return tasks;
     }
 }

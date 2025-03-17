@@ -57,7 +57,10 @@ this.HasWon=false;
         System.out.println("Gratuluji! Dokončil jsi hru!");
         System.exit(0);
     }
-
+    public void removeItem(String itemName) {
+        inventory.removeIf(item -> item.getName().equalsIgnoreCase(itemName));
+        System.out.println("🗑️ Odevzdal jsi: " + itemName);
+    }
     public boolean hasWon() {
         return HasWon;
     }

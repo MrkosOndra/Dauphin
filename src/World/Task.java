@@ -9,9 +9,9 @@ public class Task {
     private Item reward;
     private int citizensReward;
 
-    public Task(String description, boolean complete, Item requiredItem, Item reward, int citizensReward) {
+    public Task(String description, Item requiredItem, Item reward, int citizensReward) {
         this.description = description;
-        this.complete = complete;
+        this.complete = false;
         this.requiredItem = requiredItem;
         this.reward = reward;
         this.citizensReward = citizensReward;

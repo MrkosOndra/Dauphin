@@ -32,9 +32,11 @@ public class Complete extends Command {
         }
 
         if (map.getPlayer().hasItem(task.getRequiredItem().getName())) {
+            System.out.println("✅ Úkol splněn! Dostal jsi: " + task.getReward().getName());
+            System.out.println("🏛️ K tvému království se připojilo " + task.getCitizensReward() + " obyvatel.");
+            map.getPlayer().removeItem(task.getRequiredItem().getName());
             map.getPlayer().addItem(task.getReward());
-            npc.getTasks().remove(task);
-            System.out.println("Úkol splněn! Dostal jsi: " + task.getReward().getName());
+            map.getPlayer().addCitiziens(task.getCitizensReward());
         } else {
             System.out.println("Nemáš potřebný předmět k dokončení úkolu.");
         }

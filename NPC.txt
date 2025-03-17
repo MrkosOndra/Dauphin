@@ -1,13 +1,15 @@
-Merlin;Montburn;
-Kral Artus;Orleans;
-Obchodnik Pierre;Paris;
-Kovar Robert;Reims;
-Alchymista Hugo;Gerberoy;
-Lancelot;Avignon;
-Gaston;Les Landes;
-Kralovna Eleanor;Saint Cirq Lapopie;
-Athelsan;Fonteneblausky Les;
-Cedric;Les Compiegne;
-Lovec Hugo;Orleansky Les;
-Myslivec Alfred;Broceliandsky les;
-Caliste;La Roque Gageac;
+# Jméno NPC; Lokace; Dialog; Popis úkolu; Požadovaný předmět; Kdo má předmět (lokace); Odměna; Počet obyvatel
+
+Merlin;Montburn;Ahoj, jsem Merlin. Potřebuji tvou pomoc! Hledám Magic Stone, který mi pomůže dokončit mocné kouzlo. Můžeš ho najít u Gastona v Les Landes.;Najdi Magic Stone a přines ho zpět.;Magic Stone;Gaston (Les Landes);Golden Key;500000
+Kral Artus;Orleans;Zdravím tě, statečný poutníku! Excalibur musí být nalezen, jen s ním mohu bránit království. Lancelot v Avignonu ho má, jdi za ním.;Přines Excalibur z jeskyně.;Excalibur;Lancelot (Avignon);Royal Armor;700000
+Obchodnik Pierre;Paris;Vítej v mém obchodě! Mám vzácný svitek, ale něco za něco. Potřebuji Silver Coin, který má Myslivec Alfred v Broceliandském lese.;Dej mi Silver Coin a dostaneš Ancient Scroll.;Silver Coin;Myslivec Alfred (Broceliandský Les);Ancient Scroll;300000
+Kovar Robert;Reims;Hej cestovateli, potřebuji Meteoric Iron na výrobu meče! Tento kov má Cedric v Les Compiegne. Najdi ho a přines mi ho.;Najdi Meteoric Iron.;Meteoric Iron;Cedric (Les Compiegne);Legendary Sword;600000
+Alchymista Hugo;Gerberoy;Vítej v mé laboratoři! Snažím se vytvořit elixír nesmrtelnosti, ale potřebuji Philosopher's Stone. Ten má Caliste v La Roque Gageac.;Najdi Philosopher's Stone.;Philosopher's Stone;Caliste (La Roque Gageac);Elixir of Life;400000
+Lancelot;Avignon;Statečný bojovníku, potřebuji Divine Shield, abych mohl bojovat proti temným silám! Tento štít má Athelsan ve Fontainebleauském lese.;Najdi Divine Shield.;Divine Shield;Athelsan (Fontainebleauský Les);Warrior Medal;500000
+Gaston;Les Landes;Cizinče, vím o tajemství ukrytém v lese, ale potřebuji Mystic Key. Cedric v Les Compiegne ho má, můžeš mi ho přinést?;Přines Mystic Key.;Mystic Key;Cedric (Les Compiegne);Forbidden Knowledge;500000
+Kralovna Eleanor;Saint Cirq Lapopie;Můj lid je v nebezpečí! Abych mohla sjednotit království, potřebuji Royal Decree. Král Artuš v Orleansu ti ho může dát.;Získej podporu všech měst a přines mi Royal Decree.;Royal Decree;Král Artuš (Orleans);United Kingdom;1000000
+Athelsan;Fonteneblausky Les;Les je v ohrožení! Sacred Herb je jediná věc, která ho může zachránit. Najdeš ho u Huga v Orleanském lese.;Přines Sacred Herb.;Sacred Herb;Lovec Hugo (Orleanský Les);Nature Amulet;400000
+Cedric;Les Compiegne;Potřebujeme lepší ochranu před bandity. Iron Shield nám může pomoci! Kovář Robert v Reimsu ho má.;Přines Iron Shield.;Iron Shield;Kovář Robert (Reims);Guard Medal;500000
+Lovec Hugo;Orleansky Les;V temném lese se ukrývá nebezpečné stvoření! Potřebuji Beast Claw, kterou má Merlin v Montburnu.;Najdi Beast Claw a přines ji zpět.;Beast Claw;Merlin (Montburn);Hunter's Bow;300000
+Myslivec Alfred;Broceliandsky Les;Poutníku! Viděl jsem vzácnou rostlinu, ale nemohu ji sám získat. Rare Herb má Athelsan ve Fontainebleauském lese.;Najdi Rare Herb a přines ji zpět.;Rare Herb;Athelsan (Fontainebleauský Les);Healing Potion;200000
+Caliste;La Roque Gageac;Hledám příběhy z celého království! Ancient Book mi pomůže zaznamenat nové legendy. Obchodník Pierre v Paříži ho má.;Dej mi Ancient Book, abych mohl zaznamenat nové legendy.;Ancient Book;Obchodník Pierre (Paris);Silver Lute;200000

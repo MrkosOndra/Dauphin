@@ -7,6 +7,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.List;
 
 
 public class WorldMap {
@@ -49,6 +50,47 @@ private Player player;
             throw new RuntimeException(e);
         }
 
+    }
+    public void loadNPCs() {
+        try (BufferedReader br = new BufferedReader(new FileReader("NPC.txt"))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                if (line.startsWith("#") || line.trim().isEmpty()) continue; // Přeskočí komentáře a prázdné řádky
+
+                String[] parts = line.split(";");
+                if (parts.length < 8) {
+                    System.out.println("⚠️ Chyba v řádku: " + line);
+                    continue;
+                }
+
+                // Načtení dat z textového souboru
+                String name = parts[0].trim();   // Jméno NPC
+                String locationName = parts[1].trim().toLowerCase();  // Lokace NPC
+                String dialogue = parts[2].trim();  // Co NPC říká hráči
+                String taskDescription = parts[3].trim();  // Popis úkolu
+                String requiredItemName = parts[4].trim();  // Požadovaný předmět
+                String giverInfo = parts[5].trim();  // Kdo má požadovaný předmět
+                String rewardName = parts[6].trim();  // Odměna
+                int populationGain = Integer.parseInt(parts[7].trim());  // Počet získaných obyvatel
+
+                Item requiredItem = new Item(requiredItemName);
+                Item rewardItem = new Item(rewardName);
+
+                Task task = new Task(taskDescription,requiredItem, rewardItem, populationGain);
+
+                NPC npc = new NPC(name, locations.get(locationName), dialogue,task);
+
+                // Přidání NPC do lokace
+                if (locations.containsKey(locationName)) {
+                    locations.get(locationName).addNpc(npc);
+                    System.out.println("✅ Načteno NPC: " + name + " do lokace " + locationName);
+                } else {
+                    System.out.println("⚠️ Chyba: Lokace '" + locationName + "' pro NPC '" + name + "' neexistuje.");
+                }
+            }
+        } catch (IOException e) {
+            System.out.println("❌ Chyba při načítání NPC: " + e.getMessage());
+        }
     }
     public void printMap(){
         for(Location loc: locations.values()){

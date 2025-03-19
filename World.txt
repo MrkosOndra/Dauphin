@@ -1,13 +1,13 @@
-Fontainebleausky les-Orleans-Montburn
-les Compiegne-Reims
-Orleansky les-Orleans
-Broceliandsky les-Avignon
-les Landes-Pariz-Orleans
-Pariz-les Landes-Saint Cirq Lapopie
-Orleans-Fontainebleausky les-Orleansky les
-Reims-les Compiegne-Gerberoy
-Avignon-La Roque Gageac-Broceliandský les
-Saint Cirq Lapopie-Pariz
-Montburn-Gerberoy-Fontainebleausky les
-Gerberoy-Montburn-Reims
-La Roque Gageac-Avignon
+fontainebleausky les - les compiegne - orleans - montburn
+les compiegne - fontainebleausky les - reims - gerberoy
+orleansky les - orleans - broceliandsky les
+broceliandsky les - avignon - les landes - orleansky les
+les landes - pariz - orleans
+pariz - les landes - saint cirq lapopie - gerberoy
+orleans - fontainebleausky les - orleansky les - reims
+reims - les compiegne - gerberoy - avignon
+avignon - la roque gageac - broceliandsky les - gerberoy
+saint cirq lapopie - pariz
+montburn - gerberoy - fontainebleausky les - orleans
+gerberoy - montburn - reims - la roque gageac
+la roque gageac - avignon - gerberoy

@@ -1,6 +1,7 @@
 package Game;
 
 import Command.Command;
+import World.Item;
 import World.WorldMap;
 import Command.*;
 
@@ -24,13 +25,27 @@ public class Start {
         commands.put("take", new Take(world));
         commands.put("complete", new Complete(world));
         commands.put("help", new Help(world));
+        commands.put("inventory",new Inventory(world));
+        commands.put("status",new Status(world));
+        commands.put("map",new Mapa(world));
     }
 
     public void run() {
         if (world.loadMap()) {
             world.printMap();
             world.setStartLocation("Orleans");
-            System.out.println("Vítejte ve hře!");
+            world.loadNPCs();
+            System.out.println("═══════════════════════════════════");
+            System.out.println("🎉 Vítej ve hře *Dauphin*! 🎉");
+            System.out.println("🗺️ Nacházíš se v městě *Orléans*.");
+            System.out.println("📜 Jmenuješ se *Dauphin* a tvým úkolem je sjednotit království.");
+            System.out.println("🎒 V inventáři máš důležitý předmět pro svůj první úkol.");
+            Item startingItem = new Item("Magic Stone");
+            world.getPlayer().addItem(startingItem);
+            System.out.println("🎒 Můžeš kdykoli zadat 'help' pro seznam příkazů nebo 'map' pro zobrazení mapy.");
+            System.out.println("👉 Tvým prvním úkolem je najít *Merlin* v *Montburnu*.");
+            System.out.println("🔎 Použij příkaz *move montburn* a potom *talk merlin*.");
+            System.out.println("═══════════════════════════════════");
 
             while (true) {
                 System.out.print("\nZadejte příkaz: ");

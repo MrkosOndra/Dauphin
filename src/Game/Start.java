@@ -32,7 +32,6 @@ public class Start {
 
     public void run() {
         if (world.loadMap()) {
-            world.printMap();
             world.setStartLocation("Orleans");
             world.loadNPCs();
             System.out.println("═══════════════════════════════════");

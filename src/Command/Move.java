@@ -32,9 +32,6 @@ public class Move extends Command {
                 currentLocation = nextLocation;
                 System.out.println("Přesunul si se do: " + currentLocation.getName());
 
-                System.out.println("🔍 Hledám NPC v lokaci: " + currentLocation.getName());
-                System.out.println("🗺️ Seznam NPC: " + currentLocation.getNpcs().keySet());
-
 
                 if(!nextLocation.getNpcs().isEmpty()){
                     System.out.println("Muzes mluvit s: ");

@@ -37,8 +37,6 @@ private Player player;
                 String locName = parts[0].trim().toLowerCase();
                 Location loc = locations.computeIfAbsent(locName, name -> new Location(name));
 
-                System.out.println("nactena lokace:"+ locName);
-
                 for (int i = 1; i < parts.length; i++) {
                     String connectedLocName = parts[i].trim().toLowerCase();
                     Location connectedLoc = locations.computeIfAbsent(connectedLocName, name -> new Location(name));
@@ -54,16 +52,13 @@ private Player player;
 
     }
     public void loadNPCs() {
-        System.out.println("📥 Začínám načítat NPC z NPC.txt...");
         try (BufferedReader br = new BufferedReader(new FileReader("NPC.txt"))) {
             String line;
             while ((line = br.readLine()) != null) {
                 if (line.startsWith("#") || line.trim().isEmpty()) continue;
-                System.out.println("📖 Čtu řádek: " + line);
                 String[] parts = line.split(";");
-                System.out.println("🔍 Parsuji: " + Arrays.toString(parts));
                 if (parts.length < 8) {
-                    System.out.println("⚠️ Chyba v řádku: " + line);
+                    System.out.println(" Chyba v řádku: " + line);
                     continue;
                 }
 
@@ -82,20 +77,15 @@ private Player player;
 
                 Location location = locations.get(locationName);
                 if (location == null) {
-                    System.out.println("⚠️ Chyba: Lokace '" + locationName + "' pro NPC '" + name + "' neexistuje.");
+                    System.out.println("Chyba: Lokace '" + locationName + "' pro NPC '" + name + "' neexistuje.");
                     continue;
                 }
 
-
-                System.out.println("🔍 Přidávám NPC: " + name + " do lokace: " + location.getName());
 
 
                 NPC npc = new NPC(name, location, dialogue, task);
                 location.addNpc(npc);
 
-
-                System.out.println("✅ NPC '" + name + "' bylo úspěšně přidáno do lokace '" + location.getName() + "'");
-                System.out.println("🗺️ NPC v lokaci " + location.getName() + ": " + location.getNpcs().keySet());
             }
         } catch (IOException e) {
             System.out.println("Chyba při načítání NPC: " + e.getMessage());
@@ -110,7 +100,6 @@ private Player player;
         locationName = locationName.trim().toLowerCase();
         if (locations.containsKey(locationName)) {
             currentLocation = locations.get(locationName);
-            System.out.println("Startovní lokace nastavena: " + currentLocation.getName());
         }else{
             System.out.println("Chyba: Startovní lokace '" + locationName + "' neexistuje!");
         }

@@ -21,8 +21,6 @@ public class Location {
     }
     public void addNpc( NPC npc){
         npcs.put(npc.getName().toLowerCase(),npc);
-        System.out.println("NPC " + npc.getName() + " přidán do lokace " + this.name);
-        System.out.println("Seznam NPC v lokaci " + this.name + ": " + npcs.keySet());
     }
     public NPC getNPC(String name){
         return npcs.get(name.toLowerCase());
@@ -53,9 +51,6 @@ public class Location {
     }
 
     public HashMap<String, NPC> getNpcs() {
-        System.out.println("🔍 Hledám NPC v lokaci: " + this.name);
-        System.out.println("🗺️ Seznam NPC: " + npcs.keySet());
-
         return npcs;
     }
 }

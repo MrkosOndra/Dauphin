@@ -6,6 +6,8 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.Arrays;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 
@@ -52,44 +54,51 @@ private Player player;
 
     }
     public void loadNPCs() {
+        System.out.println("📥 Začínám načítat NPC z NPC.txt...");
         try (BufferedReader br = new BufferedReader(new FileReader("NPC.txt"))) {
             String line;
             while ((line = br.readLine()) != null) {
-                if (line.startsWith("#") || line.trim().isEmpty()) continue; // Přeskočí komentáře a prázdné řádky
-
+                if (line.startsWith("#") || line.trim().isEmpty()) continue;
+                System.out.println("📖 Čtu řádek: " + line);
                 String[] parts = line.split(";");
+                System.out.println("🔍 Parsuji: " + Arrays.toString(parts));
                 if (parts.length < 8) {
                     System.out.println("⚠️ Chyba v řádku: " + line);
                     continue;
                 }
 
-                // Načtení dat z textového souboru
-                String name = parts[0].trim();   // Jméno NPC
-                String locationName = parts[1].trim().toLowerCase();  // Lokace NPC
-                String dialogue = parts[2].trim();  // Co NPC říká hráči
-                String taskDescription = parts[3].trim();  // Popis úkolu
-                String requiredItemName = parts[4].trim();  // Požadovaný předmět
-                String giverInfo = parts[5].trim();  // Kdo má požadovaný předmět
-                String rewardName = parts[6].trim();  // Odměna
-                int populationGain = Integer.parseInt(parts[7].trim());  // Počet získaných obyvatel
+                String name = parts[0].trim();
+                String locationName = parts[1].trim().toLowerCase();
+                String dialogue = parts[2].trim();
+                String taskDescription = parts[3].trim();
+                String requiredItemName = parts[4].trim();
+                String giverInfo = parts[5].trim();
+                String rewardName = parts[6].trim();
+                int populationGain = Integer.parseInt(parts[7].trim());
 
                 Item requiredItem = new Item(requiredItemName);
                 Item rewardItem = new Item(rewardName);
+                Task task = new Task(taskDescription, requiredItem, rewardItem, populationGain);
 
-                Task task = new Task(taskDescription,requiredItem, rewardItem, populationGain);
-
-                NPC npc = new NPC(name, locations.get(locationName), dialogue,task);
-
-                // Přidání NPC do lokace
-                if (locations.containsKey(locationName)) {
-                    locations.get(locationName).addNpc(npc);
-                    System.out.println("✅ Načteno NPC: " + name + " do lokace " + locationName);
-                } else {
+                Location location = locations.get(locationName);
+                if (location == null) {
                     System.out.println("⚠️ Chyba: Lokace '" + locationName + "' pro NPC '" + name + "' neexistuje.");
+                    continue;
                 }
+
+
+                System.out.println("🔍 Přidávám NPC: " + name + " do lokace: " + location.getName());
+
+
+                NPC npc = new NPC(name, location, dialogue, task);
+                location.addNpc(npc);
+
+
+                System.out.println("✅ NPC '" + name + "' bylo úspěšně přidáno do lokace '" + location.getName() + "'");
+                System.out.println("🗺️ NPC v lokaci " + location.getName() + ": " + location.getNpcs().keySet());
             }
         } catch (IOException e) {
-            System.out.println("❌ Chyba při načítání NPC: " + e.getMessage());
+            System.out.println("Chyba při načítání NPC: " + e.getMessage());
         }
     }
     public void printMap(){
@@ -138,7 +147,9 @@ private Player player;
         }
         return null;
     }
-
+    public Collection<Location> getAllLocations() {
+        return locations.values();
+    }
 }
 
 

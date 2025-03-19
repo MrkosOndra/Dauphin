@@ -2,32 +2,34 @@ package Game;
 
 import World.Item;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Player {
-    private List<Item> inventory;
+    private ArrayList<Item> inventory;
     private int citizens;
     private boolean HasWon;
 
-    public Player(List<Item> inventory, int citizens, boolean hasWon) {
+    public Player(ArrayList<Item> inventory, int citizens, boolean hasWon) {
         this.inventory = inventory;
         this.citizens = citizens;
         HasWon = hasWon;
     }
 
     public Player() {
-this.citizens=0;
-this.HasWon=false;
+        this.inventory=new ArrayList<>();
+        this.citizens=0;
+        this.HasWon=false;
     }
 
 
     public void addItem(Item item) {
-        if(inventory.size()<=10) {
-            inventory.add(item);
-            System.out.println("sebral jsi: " + item.getName());
-        }else{
-            System.out.println("mas plny inventar!!");
+        if (item == null) {
+            System.out.println("Nemůžeš přidat neexistující předmět!");
+            return;
         }
+        inventory.add(item);
+        System.out.println("Sebral jsi: " + item.getName());
     }
     public boolean hasItem(String ItemName){
         return inventory.stream().anyMatch(item-> item.getName().equalsIgnoreCase(ItemName));

@@ -25,15 +25,25 @@ public class Move extends Command {
             return;
         }
 
-        System.out.println("Dostupné lokace z " + currentLocation.getName() + ": " + currentLocation.getConnections().keySet());
-        System.out.println("Hledám lokaci: " + destination);
-
             Location nextLocation = currentLocation.getConnections().get(destination);
 
             if (nextLocation != null) {
                 map.setCurrentLocation(nextLocation);
                 currentLocation = nextLocation;
                 System.out.println("Přesunul si se do: " + currentLocation.getName());
+
+                System.out.println("🔍 Hledám NPC v lokaci: " + currentLocation.getName());
+                System.out.println("🗺️ Seznam NPC: " + currentLocation.getNpcs().keySet());
+
+
+                if(!nextLocation.getNpcs().isEmpty()){
+                    System.out.println("Muzes mluvit s: ");
+for (String npcName: nextLocation.getNpcs().keySet()){
+               System.out.println(npcName);
+}
+                }else{
+                    System.out.println("tady nejsou npc se kterymi muzes mluvit");
+                }
             } else {
                 System.out.println("Tudy cesta nevede");
             }

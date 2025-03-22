@@ -57,7 +57,6 @@ public class Player {
     public void winGame() {
         this.HasWon = true;
         System.out.println("Gratuluji! Dokončil jsi hru!");
-        System.exit(0);
     }
     public void removeItem(String itemName) {
         inventory.removeIf(item -> item.getName().equalsIgnoreCase(itemName));

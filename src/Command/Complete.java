@@ -1,5 +1,6 @@
 package Command;
 
+import Game.Player;
 import World.NPC;
 import World.Task;
 import World.WorldMap;
@@ -39,6 +40,11 @@ public class Complete extends Command {
             map.getPlayer().addCitiziens(task.getCitizensReward());
         } else {
             System.out.println("Nemáš potřebný předmět k dokončení úkolu.");
+        }
+        Player player = map.getPlayer();
+        if(player.getCitizens()>=5000000){
+            player.winGame();
+            System.exit(0);
         }
     }
 

@@ -1,7 +1,11 @@
 package World;
 
 import java.util.HashMap;
-
+/**
+ * Třída reprezentuje lokaci na mapě.
+ * Obsahuje napojení na další lokace, NPC a itemy v lokaci.
+ * @author Ondra
+ */
 public class Location {
     private String name;
     private HashMap<String,Location> connections;
@@ -14,11 +18,18 @@ public class Location {
         this.npcs=new HashMap<>();
         this.Items=new HashMap<>();
     }
-
+    /**
+     * Přidá spojení mezi touto lokací a jinou.
+     * @param location Lokace, která se připojí
+     */
     public void addConnections(Location location){
         connections.put(location.getName().toLowerCase(), location);
         location.connections.put(this.name.toLowerCase(), this);
     }
+    /**
+     * Přidá NPC do lokace.
+     * @param npc NPC objekt
+     */
     public void addNpc( NPC npc){
         npcs.put(npc.getName().toLowerCase(),npc);
     }
@@ -37,6 +48,10 @@ public class Location {
         return Items.get(itemName.toLowerCase());
     }
 
+    /**
+     * Odstraní item z lokace.
+     * @param itemName název itemu
+     */
     public void removeItem(String itemName) {
         Items.remove(itemName.toLowerCase());
     }

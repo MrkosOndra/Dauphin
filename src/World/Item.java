@@ -1,5 +1,8 @@
 package World;
-
+/**
+ * Třída reprezentuje předmět, který může hráč sebrat nebo použít k úkolu.
+ * @author Ondra
+ */
 public class Item {
     private String name;
     private boolean have;

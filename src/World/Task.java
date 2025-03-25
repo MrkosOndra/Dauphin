@@ -1,7 +1,11 @@
 package World;
 
 import Game.Player;
-
+/**
+ * Třída reprezentuje úkol, který může hráč splnit.
+ * Obsahuje požadovaný item, odměnu a počet obyvatel, které hráč získá za splnění.
+ * @author Ondra
+ */
 public class Task {
     private String description;
     private boolean complete;
@@ -16,7 +20,11 @@ public class Task {
         this.reward = reward;
         this.citizensReward = citizensReward;
     }
-
+    /**
+     * Zkontroluje, zda hráč má požadovaný předmět pro splnění úkolu.
+     * @param player hráč
+     * @return true, pokud hráč má požadovaný item
+     */
     public boolean checkCompletion(Player player) {
         if (player.hasItem(requiredItem.getName())) {
             complete = true;

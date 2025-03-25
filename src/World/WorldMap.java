@@ -11,7 +11,11 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 
-
+/**
+ * Třída reprezentuje herní mapu, lokace a hráče.
+ * Obsahuje metody pro načítání světa a NPC.
+ * @author Ondra
+ */
 public class WorldMap {
 private HashMap<String,Location> locations;
 private Location currentLocation;
@@ -26,7 +30,10 @@ private Player player;
     public Player getPlayer() {
         return player;
     }
-
+    /**
+     * Načte mapu ze souboru World.txt
+     * @return true, pokud načtení proběhlo úspěšně
+     */
     public boolean loadMap() {
         try (BufferedReader br = new BufferedReader(new FileReader("World.txt"))) {
             String line;
@@ -51,6 +58,10 @@ private Player player;
         }
 
     }
+
+    /**
+     * Načte NPC ze souboru NPC.txt a přidá je do lokací.
+     */
     public void loadNPCs() {
         try (BufferedReader br = new BufferedReader(new FileReader("NPC.txt"))) {
             String line;
@@ -96,6 +107,11 @@ private Player player;
             System.out.println(loc);
         }
         }
+    /**
+     * Nastaví počáteční lokaci hráče ve světě podle jména zadané lokace.
+     *
+     * @param locationName Název startovní lokace (nerozlišuje velikost písmen).
+     */
     public void setStartLocation(String locationName) {
         locationName = locationName.trim().toLowerCase();
         if (locations.containsKey(locationName)) {
@@ -118,6 +134,12 @@ private Player player;
     public void setCurrentLocation(Location currentLocation) {
         this.currentLocation = currentLocation;
     }
+    /**
+     * Přidá danou NPC postavu do zadané lokace na mapě.
+     *
+     * @param locationName název lokace, do které se má NPC přidat
+     * @param npc objekt NPC, který má být přidán do lokace
+     */
     public void addNPCLocation(String locationName, NPC npc){
         Location location = locations.get(locationName.toLowerCase());
         if (location != null) {
